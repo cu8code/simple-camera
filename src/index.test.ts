@@ -1,5 +1,13 @@
-import a from "./index";
-test("some",()=>{
-  expect(2+2).toBe(4)
-  console.log(a)
+import SimpleCamera from "./index";
+
+jest.autoMockOff()
+
+afterEach(() => {
+  jest.restoreAllMocks()
+})
+
+test("testing if all the methods are present",() => {
+  const c = new SimpleCamera({rootElement:document.body})
+  jest.spyOn(c,"start")
+  jest.spyOn(c,"stop")
 })
